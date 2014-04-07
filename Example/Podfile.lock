@@ -1,0 +1,14 @@
+PODS:
+  - UIColor+CSSColors (0.0.1)
+
+DEPENDENCIES:
+  - UIColor+CSSColors (from `..`)
+
+EXTERNAL SOURCES:
+  UIColor+CSSColors:
+    :path: ..
+
+SPEC CHECKSUMS:
+  UIColor+CSSColors: 89da4742dd59bdb6e69ee7e584ef95835c07cb24
+
+COCOAPODS: 0.31.1

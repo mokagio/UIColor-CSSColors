@@ -1,0 +1,5 @@
+platform :ios
+
+target :CSSColors do
+  pod 'UIColor+CSSColors', :path => '..'
+end
