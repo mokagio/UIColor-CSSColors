@@ -2,11 +2,9 @@
 #import "ViewController.h"
 #import <UIColor+CSSColors.h>
 
-static NSString *CellIdentifier = @"CellIdentifier";
-
-@interface ViewController () <UICollectionViewDataSource>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray *colors;
-@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation ViewController
@@ -17,139 +15,7 @@ static NSString *CellIdentifier = @"CellIdentifier";
     if (!self) { return nil; }
 
     self.colors = @[
-                    [UIColor aliceBlueColor],
-                    [UIColor antiqueWhiteColor],
-                    [UIColor aquaColor],
-                    [UIColor aquamarineColor],
-                    [UIColor azureColor],
-                    [UIColor beigeColor],
-                    [UIColor bisqueColor],
-                    [UIColor blanchedAlmondColor],
-                    [UIColor blueVioletColor],
-                    [UIColor burlyWoodColor],
-                    [UIColor cadetBlueColor],
-                    [UIColor chartreuseColor],
-                    [UIColor chocolateColor],
-                    [UIColor coralColor],
-                    [UIColor cornflowerBlueColor],
-                    [UIColor cornsilkColor],
-                    [UIColor crimsonColor],
-                    [UIColor darkBlueColor],
-                    [UIColor darkCyanColor],
-                    [UIColor darkGoldenRodColor],
-                    [UIColor darkGreyColor],
-                    [UIColor darkGreenColor],
-                    [UIColor darkKhakiColor],
-                    [UIColor darkMagentaColor],
-                    [UIColor darkOliveGreenColor],
-                    [UIColor darkorangeColor],
-                    [UIColor darkOrchidColor],
-                    [UIColor darkRedColor],
-                    [UIColor darkSalmonColor],
-                    [UIColor darkSeaGreenColor],
-                    [UIColor darkSlateBlueColor],
-                    [UIColor darkSlateGrayColor],
-                    [UIColor darkSlateGreyColor],
-                    [UIColor darkTurquoiseColor],
-                    [UIColor darkVioletColor],
-                    [UIColor deepPinkColor],
-                    [UIColor deepSkyBlueColor],
-                    [UIColor dimGrayColor],
-                    [UIColor dimGreyColor],
-                    [UIColor dodgerBlueColor],
-                    [UIColor fireBrickColor],
-                    [UIColor floralWhiteColor],
-                    [UIColor forestGreenColor],
-                    [UIColor fuchsiaColor],
-                    [UIColor gainsboroColor],
-                    [UIColor ghostWhiteColor],
-                    [UIColor goldColor],
-                    [UIColor goldenRodColor],
-                    [UIColor greyColor],
-                    [UIColor greenYellowColor],
-                    [UIColor honeyDewColor],
-                    [UIColor hotPinkColor],
-                    [UIColor indianRedColor],
-                    [UIColor indigoColor],
-                    [UIColor ivoryColor],
-                    [UIColor khakiColor],
-                    [UIColor lavenderColor],
-                    [UIColor lavenderBlushColor],
-                    [UIColor lawnGreenColor],
-                    [UIColor lemonChiffonColor],
-                    [UIColor lightBlueColor],
-                    [UIColor lightCoralColor],
-                    [UIColor lightCyanColor],
-                    [UIColor lightGoldenRodYellowColor],
-                    [UIColor lightGreyColor],
-                    [UIColor lightGreenColor],
-                    [UIColor lightPinkColor],
-                    [UIColor lightSalmonColor],
-                    [UIColor lightSeaGreenColor],
-                    [UIColor lightSkyBlueColor],
-                    [UIColor lightSlateGrayColor],
-                    [UIColor lightSlateGreyColor],
-                    [UIColor lightSteelBlueColor],
-                    [UIColor lightYellowColor],
-                    [UIColor limeColor],
-                    [UIColor limeGreenColor],
-                    [UIColor linenColor],
-                    [UIColor maroonColor],
-                    [UIColor mediumAquaMarineColor],
-                    [UIColor mediumBlueColor],
-                    [UIColor mediumOrchidColor],
-                    [UIColor mediumPurpleColor],
-                    [UIColor mediumSeaGreenColor],
-                    [UIColor mediumSlateBlueColor],
-                    [UIColor mediumSpringGreenColor],
-                    [UIColor mediumTurquoiseColor],
-                    [UIColor mediumVioletRedColor],
-                    [UIColor midnightBlueColor],
-                    [UIColor mintCreamColor],
-                    [UIColor mistyRoseColor],
-                    [UIColor moccasinColor],
-                    [UIColor navajoWhiteColor],
-                    [UIColor navyColor],
-                    [UIColor oldLaceColor],
-                    [UIColor oliveColor],
-                    [UIColor oliveDrabColor],
-                    [UIColor orangeRedColor],
-                    [UIColor orchidColor],
-                    [UIColor paleGoldenRodColor],
-                    [UIColor paleGreenColor],
-                    [UIColor paleTurquoiseColor],
-                    [UIColor paleVioletRedColor],
-                    [UIColor papayaWhipColor],
-                    [UIColor peachPuffColor],
-                    [UIColor peruColor],
-                    [UIColor pinkColor],
-                    [UIColor plumColor],
-                    [UIColor powderBlueColor],
-                    [UIColor rosyBrownColor],
-                    [UIColor royalBlueColor],
-                    [UIColor saddleBrownColor],
-                    [UIColor salmonColor],
-                    [UIColor sandyBrownColor],
-                    [UIColor seaGreenColor],
-                    [UIColor seaShellColor],
-                    [UIColor siennaColor],
-                    [UIColor silverColor],
-                    [UIColor skyBlueColor],
-                    [UIColor slateBlueColor],
-                    [UIColor slateGrayColor],
-                    [UIColor slateGreyColor],
-                    [UIColor snowColor],
-                    [UIColor springGreenColor],
-                    [UIColor steelBlueColor],
-                    [UIColor tanColor],
-                    [UIColor tealColor],
-                    [UIColor thistleColor],
-                    [UIColor tomatoColor],
-                    [UIColor turquoiseColor],
-                    [UIColor violetColor],
-                    [UIColor wheatColor],
-                    [UIColor whiteSmokeColor],
-                    [UIColor yellowGreenColor],
+
                     ];
 
     return self;
@@ -159,36 +25,221 @@ static NSString *CellIdentifier = @"CellIdentifier";
 {
     [super viewDidLoad];
 
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds
-                                             collectionViewLayout:flowLayout];
-    self.collectionView.dataSource = self;
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
 
-    [self.view addSubview:self.collectionView];
+    [self.view addSubview:self.tableView];
 }
 
 #pragma mark - UICollectionViewDataSource
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.colors count];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIColor *color = self.colors[indexPath.row];
+    static NSString *CellIdentifier = @"CellIdentifier";
 
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier
-                                                                           forIndexPath:indexPath];
-    cell.backgroundColor = color;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+
+    NSString *colorName = self.colors[indexPath.row];
+    cell.backgroundColor = [self colorWithName:colorName];
 
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *colorName = self.colors[indexPath.row];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[colorName lowercaseString]
+                                                    message:@""
+                                                   delegate:nil
+                                          cancelButtonTitle:@":)"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+#pragma mark - Status Bar
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
+#pragma mark - Color
+
+- (UIColor *)colorWithName:(NSString *)name
+{
+    NSString *selectorString = [NSString stringWithFormat:@"css%@Color", name];
+    Class colorClass = [UIColor class];
+    return [colorClass performSelector:NSSelectorFromString(selectorString)];
+}
+
+- (NSArray *)colors
+{
+    return @[
+             @"Aliceblue",
+             @"Antiquewhite",
+             @"Aqua",
+             @"Aquamarine",
+             @"Azure",
+             @"Beige",
+             @"Bisque",
+             @"Black",
+             @"Blanchedalmond",
+             @"Blue",
+             @"Blueviolet",
+             @"Brown",
+             @"Burlywood",
+             @"Cadetblue",
+             @"Chartreuse",
+             @"Chocolate",
+             @"Coral",
+             @"Cornflowerblue",
+             @"Cornsilk",
+             @"Crimson",
+             @"Cyan",
+             @"Darkblue",
+             @"Darkcyan",
+             @"Darkgoldenrod",
+             @"Darkgray",
+             @"Darkgreen",
+             @"Darkgrey",
+             @"Darkkhaki",
+             @"Darkmagenta",
+             @"Darkolivegreen",
+             @"Darkorange",
+             @"Darkorchid",
+             @"Darkred",
+             @"Darksalmon",
+             @"Darkseagreen",
+             @"Darkslateblue",
+             @"Darkslategray",
+             @"Darkslategrey",
+             @"Darkturquoise",
+             @"Darkviolet",
+             @"Deeppink",
+             @"Deepskyblue",
+             @"Dimgray",
+             @"Dimgrey",
+             @"Dodgerblue",
+             @"Firebrick",
+             @"Floralwhite",
+             @"Forestgreen",
+             @"Fuchsia",
+             @"Gainsboro",
+             @"Ghostwhite",
+             @"Gold",
+             @"Goldenrod",
+             @"Gray",
+             @"Green",
+             @"Greenyellow",
+             @"Grey",
+             @"Honeydew",
+             @"Hotpink",
+             @"Indianred",
+             @"Indigo",
+             @"Ivory",
+             @"Khaki",
+             @"Lavender",
+             @"Lavenderblush",
+             @"Lawngreen",
+             @"Lemonchiffon",
+             @"Lightblue",
+             @"Lightcoral",
+             @"Lightcyan",
+             @"Lightgoldenrodyellow",
+             @"Lightgray",
+             @"Lightgreen",
+             @"Lightgrey",
+             @"Lightpink",
+             @"Lightsalmon",
+             @"Lightseagreen",
+             @"Lightskyblue",
+             @"Lightslategray",
+             @"Lightslategrey",
+             @"Lightsteelblue",
+             @"Lightyellow",
+             @"Lime",
+             @"Limegreen",
+             @"Linen",
+             @"Magenta",
+             @"Maroon",
+             @"Mediumaquamarine",
+             @"Mediumblue",
+             @"Mediumorchid",
+             @"Mediumpurple",
+             @"Mediumseagreen",
+             @"Mediumslateblue",
+             @"Mediumspringgreen",
+             @"Mediumturquoise",
+             @"Mediumvioletred",
+             @"Midnightblue",
+             @"Mintcream",
+             @"Mistyrose",
+             @"Moccasin",
+             @"Navajowhite",
+             @"Navy",
+             @"Oldlace",
+             @"Olive",
+             @"Olivedrab",
+             @"Orange",
+             @"Orangered",
+             @"Orchid",
+             @"Palegoldenrod",
+             @"Palegreen",
+             @"Paleturquoise",
+             @"Palevioletred",
+             @"Papayawhip",
+             @"Peachpuff",
+             @"Peru",
+             @"Pink",
+             @"Plum",
+             @"Powderblue",
+             @"Purple",
+             @"Red",
+             @"Rosybrown",
+             @"Royalblue",
+             @"Saddlebrown",
+             @"Salmon",
+             @"Sandybrown",
+             @"Seagreen",
+             @"Seashell",
+             @"Sienna",
+             @"Silver",
+             @"Skyblue",
+             @"Slateblue",
+             @"Slategray",
+             @"Slategrey",
+             @"Snow",
+             @"Springgreen",
+             @"Steelblue",
+             @"Tan",
+             @"Teal",
+             @"Thistle",
+             @"Tomato",
+             @"Turquoise",
+             @"Violet",
+             @"Wheat",
+             @"White",
+             @"Whitesmoke",
+             @"Yellow",
+             @"Yellowgreen",
+             ];
 }
 
 @end
