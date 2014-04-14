@@ -1,5 +1,6 @@
 
 #import "ViewController.h"
+#import "BigColorTableViewCell.h"
 #import <UIColor+CSSColors.h>
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -14,10 +15,6 @@
     self = [super init];
     if (!self) { return nil; }
 
-    self.colors = @[
-
-                    ];
-
     return self;
 }
 
@@ -26,6 +23,7 @@
     [super viewDidLoad];
 
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
 
@@ -48,19 +46,27 @@
 {
     static NSString *CellIdentifier = @"CellIdentifier";
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    BigColorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[BigColorTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 
     NSString *colorName = self.colors[indexPath.row];
-    cell.backgroundColor = [self colorWithName:colorName];
+    UIColor *color = [self colorWithName:colorName];
+
+    [cell setColorName:colorName];
+    [cell setColor:color];
 
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 72;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -71,6 +77,8 @@
                                           cancelButtonTitle:@":)"
                                           otherButtonTitles:nil];
     [alert show];
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Status Bar

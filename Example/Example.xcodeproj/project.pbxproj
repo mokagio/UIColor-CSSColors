@@ -20,6 +20,7 @@
 		3F52164F18F339E50087396F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F52164D18F339E50087396F /* InfoPlist.strings */; };
 		3F52165118F339E50087396F /* CSSColorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F52165018F339E50087396F /* CSSColorsTests.m */; };
 		3F52165A18F33BB70087396F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F52165918F33BB70087396F /* ViewController.m */; };
+		3FDB2D8F18FC7D500051C511 /* BigColorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB2D8E18FC7D500051C511 /* BigColorTableViewCell.m */; };
 		F492D498310B4EBE914F209D /* libPods-CSSColors.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 739BA48C4BA841EF9DC9649F /* libPods-CSSColors.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,8 @@
 		3F52165018F339E50087396F /* CSSColorsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSSColorsTests.m; sourceTree = "<group>"; };
 		3F52165818F33BB70087396F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3F52165918F33BB70087396F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3FDB2D8D18FC7D500051C511 /* BigColorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigColorTableViewCell.h; sourceTree = "<group>"; };
+		3FDB2D8E18FC7D500051C511 /* BigColorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigColorTableViewCell.m; sourceTree = "<group>"; };
 		739BA48C4BA841EF9DC9649F /* libPods-CSSColors.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CSSColors.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -118,10 +121,12 @@
 			children = (
 				3F52163A18F339E50087396F /* AppDelegate.h */,
 				3F52163B18F339E50087396F /* AppDelegate.m */,
-				3F52165818F33BB70087396F /* ViewController.h */,
-				3F52165918F33BB70087396F /* ViewController.m */,
+				3FDB2D8D18FC7D500051C511 /* BigColorTableViewCell.h */,
+				3FDB2D8E18FC7D500051C511 /* BigColorTableViewCell.m */,
 				3F52163D18F339E50087396F /* Images.xcassets */,
 				3F52163218F339E50087396F /* Supporting Files */,
+				3F52165818F33BB70087396F /* ViewController.h */,
+				3F52165918F33BB70087396F /* ViewController.m */,
 			);
 			path = CSSColors;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F52165A18F33BB70087396F /* ViewController.m in Sources */,
+				3FDB2D8F18FC7D500051C511 /* BigColorTableViewCell.m in Sources */,
 				3F52163C18F339E50087396F /* AppDelegate.m in Sources */,
 				3F52163818F339E50087396F /* main.m in Sources */,
 			);
