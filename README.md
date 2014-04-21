@@ -3,7 +3,7 @@ UIColor+CSSColors
 
 `UIColor+CSSColors` is a category that extends `UIColor` with methods to get the [CSS/SVG colors](http://www.w3.org/TR/css3-color/#svg-color). That's it.
 
-<img src="https://github.com/mokagio/UIColor-CSSColors/blob/master/screenshot.png" />
+<img src="https://raw.githubusercontent.com/mokagio/UIColor-CSSColors/master/screenshot.png" />
 
 ## Installation with CocoaPods
 
