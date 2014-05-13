@@ -7,11 +7,7 @@ header_template = <<TEMPLATE
 TEMPLATE
 
 implementation_template = <<TEMPLATE
-+ (UIColor *)css@nameColor
-{
-    return [UIColor colorWithRed:@red green:@green blue:@blue alpha:1.0];
-}
-
+AGEColorImplement(css@nameColor, @red, @green, @blue)
 TEMPLATE
 
 File.readlines("css_colors.txt").each do |line|
